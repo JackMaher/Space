@@ -4,22 +4,17 @@
 		{
 			"follow_symlinks": true,
 			"name": "Space",
-			"path": "C:\\Users\\Jack/Space"
+			"path": "C:\\Users\\Jack\\Desktop\\Space"
 		},
 		{
 			"follow_symlinks": true,
 			"name": "Flixel",
-			"path": "C:\\HaxeToolkit\\haxe\\lib\\flixel/3,3,11/"
+			"path": "C:\\HaxeToolkit\\haxe\\lib\\flixel/4,3,0/"
 		},
 		{
 			"follow_symlinks": true,
-			"name": "Flixel Addons",
-			"path": "C:\\HaxeToolkit\\haxe\\lib\\flixel-addons/1,1,0/"
-		},
-		{
-			"follow_symlinks": true,
-			"name": "Haxe",
-			"path": "C:\\HaxeToolkit\\haxe\\std"
+			"name": "Adventure",
+			"path": "C:\\HaxeToolkit\\haxe\\lib\\adventure\\git"
 		}
 	]
 }
