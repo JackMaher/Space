@@ -19,6 +19,13 @@ class Data {
         return Fuel;
     }
 
+    public static var Cargo = new Storage<Item>();
+
+    public static var ItemDetails = [
+        COW => "Cow details",
+        PORN => "Porn details"
+    ];
+
 }
 
 enum Planet {
@@ -27,4 +34,9 @@ enum Planet {
 
 enum SpaceStation {
     SPACE_STATION;
+}
+
+enum Item {
+    COW;
+    PORN;
 }

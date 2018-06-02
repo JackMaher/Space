@@ -6,12 +6,13 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.FlxG;
 
-class ToolTip extends FlxGroup {
+class ShipButton extends FlxGroup {
 
     var area:FlxSprite;
     var text:FlxText;
+    var callback:Void->Void;
 
-    override public function new(X,Y,W,H,TX,TY,TText) {
+    override public function new(X,Y,W,H,TX,TY,TText, Callback=null) {
 
         super();
 
@@ -32,13 +33,20 @@ class ToolTip extends FlxGroup {
         text.setBorderStyle(OUTLINE, FlxColor.BLACK, 4);
         add(text);
 
+        callback = Callback;
+
 
     }
 
     override public function update(elapsed:Float) {
         super.update(elapsed);
 
-        text.visible = area.overlapsPoint(FlxG.mouse.getScreenPosition());
+        var over = area.overlapsPoint(FlxG.mouse.getScreenPosition());
+
+        text.visible = over;
+        if(FlxG.mouse.justPressed && over && ShipScreen.CurrentMode == NORMAL)
+            if(callback != null) callback();
+
     }
 
 }

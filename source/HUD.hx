@@ -25,17 +25,21 @@ class HUD extends FlxGroup {
         fuel = new FuelGauge();
         add(fuel);
 
-        add(new ToolTip(75, 1, 19, 6, 75, 10, "Fuel Gauge"));
+        add(new ShipButton(75, 1, 19, 6, 75, 10, "Fuel Gauge"));
 
-        add(new ToolTip(19,1,19,6,19,10,"Cash"));
+        add(new ShipButton(19,1,19,6,19,10,"Cash"));
 
-        add(new ToolTip(46,49,21,12,44,40,"Communication"));
+        add(new ShipButton(46,49,21,12,44,40,"Communication"));
 
-        add(new ToolTip(30,55,13,8,30,43,"Map"));
+        add(new ShipButton(30,55,13,8,30,43,"Map"));
 
-        add(new ToolTip(47,1,19,8,47,13,"Inventory"));
+        var pressInv = function() {
+            FlxG.state.add(new Inventory());
+            ShipScreen.CurrentMode = INVENTORY;
+        }
+        add(new ShipButton(47,1,19,8,47,13,"Inventory", pressInv));
 
-        add(new ToolTip(69,55,11,8,70,43,"Throttle"));
+        add(new ShipButton(69,55,11,8,70,43,"Throttle"));
 
         add(new CashReadout());
 
