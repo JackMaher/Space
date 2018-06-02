@@ -7,6 +7,7 @@ import flixel.FlxSprite;
 import Data;
 using ScaledSprite;
 using flixel.util.FlxSpriteUtil;
+import flixel.util.FlxCollision;
 import flixel.FlxG;
 
 class Inventory extends FlxGroup {
@@ -19,6 +20,7 @@ class Inventory extends FlxGroup {
     var itemImg:FlxSprite;
     var inStockText:FlxText;
     var itemDesc:FlxText;
+    var totElapsed:Float = 0;
 
     override public function new() {
 
@@ -83,6 +85,24 @@ class Inventory extends FlxGroup {
         itemDesc.text = Data.ItemDetails[I];
 
         inStockText.text = Std.string(Data.Cargo.getAmount(I)) + " in cargo";
+    }
+
+    override public function update(elapsed:Float) {
+        super.update(elapsed);
+
+        totElapsed += elapsed;
+        var mpos = FlxG.mouse.getScreenPosition();
+
+        if(totElapsed < 0.1) return;
+        if(FlxG.mouse.justPressed &&
+                ( mpos.x < 200
+               || mpos.y < 60
+               || mpos.x > 930
+               || mpos.y > 540 )) {
+            kill();
+            ShipScreen.CurrentMode = NORMAL;
+        }
+
     }
 
 }
