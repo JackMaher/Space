@@ -37,6 +37,7 @@ class HUD extends FlxGroup {
 
         add(new ToolTip(47,1,19,8,47,13,"Inventory"));
 
+        add(new CashReadout());
 
     }
 

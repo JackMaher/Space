@@ -18,6 +18,12 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# OS-specific output
+export
+
+# Vim files
+*.sw*
+
 # =========================
 # Operating System Files
 # =========================

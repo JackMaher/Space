@@ -8,6 +8,8 @@ class Data {
     public static var Fuel = 5;
     public static var MaxFuel = 25;
 
+    public static var Cash = 350;
+
 }
 
 enum Planet {
