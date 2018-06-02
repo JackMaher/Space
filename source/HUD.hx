@@ -27,8 +27,6 @@ class HUD extends FlxGroup {
 
         add(new ToolTip(75, 1, 19, 6, 75, 10, "Fuel Gauge"));
 
-        //x,y,width,height,x-text,y-text,string
-
         add(new ToolTip(19,1,19,6,19,10,"Cash"));
 
         add(new ToolTip(46,49,21,12,44,40,"Communication"));
@@ -39,6 +37,14 @@ class HUD extends FlxGroup {
 
         add(new CashReadout());
 
+    }
+
+    override public function update(elapsed:Float) {
+        super.update(elapsed);
+
+        if(FlxG.keys.justPressed.X) {
+            Data.Fuel--;
+        }
     }
 
 }

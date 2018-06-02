@@ -1,13 +1,14 @@
 package;
 
 import flixel.FlxSprite;
+import flixel.group.FlxGroup;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
 
 class FuelGauge extends FlxGroup {
 
     public static var MaxWidth:Int = 170;
-    public static var CashColor:Int = 0xffffffff;
+    public static var FuelColor:Int = 0xffffffff;
 
     var timeTotal:Float = 0;
 
@@ -17,7 +18,7 @@ class FuelGauge extends FlxGroup {
     override public function new() {
         super();
 
-        gauge = new FlxSprite;
+        gauge = new FlxSprite();
         gauge.makeGraphic(1,1,FlxColor.WHITE);
 
         gauge.origin.set(0,0);
@@ -27,7 +28,7 @@ class FuelGauge extends FlxGroup {
         gauge.scale.y = 40;
         add(gauge);
 
-        text = new FlxText(200,22,170);
+        text = new FlxText(760,22,170);
         text.setFormat("assets/dseg.ttf", 32, FuelColor, RIGHT);
         text.text = Std.string(Data.Cash);
 
@@ -51,7 +52,7 @@ class FuelGauge extends FlxGroup {
 
         gauge.scale.x = fuelProportion * MaxWidth;
 
-        text.text = Data.Fuel;
+        text.text = Std.string(Data.Fuel);
 
     }
 

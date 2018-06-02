@@ -17,7 +17,7 @@ class ToolTip extends FlxGroup {
 
         area = new FlxSprite();
         area.makeGraphic(W*10, H*10, FlxColor.RED);
-        area.alpha = 0.3;
+        area.alpha = 0;
         add(area);
 
         area.x = X * 10;
