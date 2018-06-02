@@ -1,0 +1,517 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"c",
+				"customName"
+			],
+			[
+				"Lift",
+				"LiftDoor"
+			],
+			[
+				"Flx",
+				"FlxColor"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"ha",
+				"Hal"
+			],
+			[
+				"can",
+				"canControl"
+			],
+			[
+				"Pi",
+				"piney"
+			],
+			[
+				"raw",
+				"rawX"
+			],
+			[
+				"Hallway",
+				"HallwaybarFore"
+			],
+			[
+				"Cu",
+				"CutsceneAI"
+			],
+			[
+				"Cut",
+				"CutsceneAI"
+			],
+			[
+				"rod",
+				"Rodgerseat"
+			],
+			[
+				"Ro",
+				"Rodgerseat"
+			],
+			[
+				"pla",
+				"Planthall"
+			],
+			[
+				"Pla",
+				"Planthall"
+			],
+			[
+				"Loo",
+				"Loodeath"
+			],
+			[
+				"cus",
+				"customName"
+			],
+			[
+				"flx",
+				"FlxColor"
+			],
+			[
+				"d",
+				"deathText"
+			],
+			[
+				"F",
+				"FlxText"
+			],
+			[
+				"S",
+				"StdDeathTxt"
+			],
+			[
+				"st",
+				"StdDeathTxt"
+			],
+			[
+				"na",
+				"Nathan"
+			],
+			[
+				"fra",
+				"frameWidth"
+			],
+			[
+				"scale",
+				"scaleFactor"
+			],
+			[
+				"info",
+				"infoOp1"
+			],
+			[
+				"re",
+				"remove"
+			],
+			[
+				"In",
+				"inventory"
+			],
+			[
+				"use",
+				"useOn"
+			],
+			[
+				"Gl",
+				"GlitterPoppers"
+			],
+			[
+				"Old",
+				"OldspicePoppers"
+			],
+			[
+				"Che",
+				"CherryPoppers"
+			],
+			[
+				"Reus",
+				"ReusableProphylactic"
+			],
+			[
+				"int",
+				"interact"
+			],
+			[
+				"fl",
+				"FlxColor"
+			],
+			[
+				"door",
+				"doorActive"
+			],
+			[
+				"v",
+				"velocity"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "source/AssetPaths.hx",
+			"settings":
+			{
+				"buffer_size": 98,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "source/MenuState.hx",
+			"settings":
+			{
+				"buffer_size": 769,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"selected_items":
+		[
+			[
+				"Package Control: up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Jack/Documents/spacegame2/source/Main.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/rooms/Cutscene.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/rooms/Hallwaybar.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Ladyloo.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Boss.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Crate.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/rooms/Penthouse.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Penlift.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/LiftDoor.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/LiftAI.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Hallwaybardoor.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Bog.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Nathan.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/OccupiedToilet.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/rooms/Hallway2.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Poppers.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/rooms/Hallway1.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/GloryHole.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/PTwink3.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/PTwink2.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/PTwink1.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/rooms/Bar.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Poptwink.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Bartender.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Drinktwink.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/SitTwink.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/SitTwink2.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/rooms/Loohall.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/rooms/MaxxCreamRoom.hx",
+		"/C/HaxeToolkit/haxe/lib/advengine/git/adventure/Global.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Bookcase.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/Player.hx",
+		"/C/HaxeToolkit/haxe/lib/advengine/git/adventure/Object.hx",
+		"/C/HaxeToolkit/haxe/lib/advengine/git/adventure/Game.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Hal.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Sofa.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/rooms/Docking.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/MenLooDoor.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Ladyloodoor.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Poptwink1.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Floor1fan.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/rooms/EndCutscene.hx",
+		"/C/HaxeToolkit/haxe/lib/advengine/git/adventure/Block.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/rooms/PenthouseHallway.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Barlift.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/H1Door.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Rodgerseat.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Loodeath.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/rooms/Bathroom.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/StdDeathTxt.hx",
+		"/C/HaxeToolkit/haxe/lib/advengine/git/adventure/Room.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Bench.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Chair.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Dispendersbody.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Dispendershead.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Dockdoor.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Dockdoorfront.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/DockingFore.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Dockingfront.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/DockSign.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Dockwindow.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Doorman.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Hallwayfore.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/MaxLight.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Pool.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Snack.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Space.hx",
+		"/C/HaxeToolkit/haxe/lib/advengine/git/adventure/Fader.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/TextCrawl.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/OpeningScene.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Spacestation.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Sodsbury.hx",
+		"/C/Users/Jack/Documents/spacegame2/Project.xml",
+		"/C/Users/Jack/Documents/spacegame2/source/Water.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Smallfan.hx",
+		"/C/HaxeToolkit/haxe/lib/advengine/git/haxelib.json",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Dispendershead",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Curtine.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/rooms/Lift.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/ReusableProphylactic.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Camera.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/MaxxCream.hx",
+		"/C/HaxeToolkit/haxe/lib/advengine/git/adventure/Inventory.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/SexScene.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/MaxDoor.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/Waterfall.hx",
+		"/C/HaxeToolkit/haxe/lib/advengine/git/adventure/Trigger.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/rooms/LiftAI.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/objects/RoomTrigger.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/Effects.hx",
+		"/C/Users/Jack/Documents/spacegame2/assets/images/h1door.png",
+		"/C/HaxeToolkit/haxe/lib/advengine/git/adventure/Door.hx",
+		"/C/Users/Jack/Documents/spacegame/source/Objects.hx",
+		"/C/Users/Jack/Documents/spacegame/source/Speech.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/Hallway1.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/Bathroom.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/Cargo.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/Objects.hx",
+		"/C/Users/Jack/AppData/Roaming/Sublime Text 2/Packages/Haxe/Support/Haxe.sublime-settings",
+		"/C/Users/Jack/Documents/spacegame/source/Rooms.hx",
+		"/C/Users/Jack/Documents/spacegame/source/Characters.hx",
+		"/C/Users/Jack/Documents/spacegame2/source/Definitions.hx",
+		"/C/Users/Jack/Adventures of Fangasmic Bewilderment/source/PlayState.hx",
+		"/C/Users/Jack/Adventures of Fangasmic Bewilderment/source/GameObject.hx",
+		"/C/Users/Jack/FlixelTut/source/MenuState.hx",
+		"/C/Users/Jack/GH-Nevi/source/Stone.hx",
+		"/C/Users/Jack/GH-Nevi/source/PlayState.hx",
+		"/C/Users/Jack/GH-Robin/source/PlayState.hx",
+		"/C/Users/Jack/Space/Project.xml",
+		"/C/Users/Jack/ZJ-FTP/source/Finn.hx",
+		"/C/Users/Jack/FlixelTut/source/Coin.hx",
+		"/C/Users/Jack/ZJ-FTP/source/coin.hx",
+		"/C/Users/Jack/ZJ-FTP/source/Main.hx",
+		"/C/Users/Jack/FlixelTut/source/PlayState.hx",
+		"/C/Users/Jack/ZJ-FTP/source/PlayState.hx",
+		"/C/Users/Jack/Adventures of Fangasmic Bewilderment/source/LakeState.hx",
+		"/C/Users/Jack/ZJ-FTP/Project.xml",
+		"/C/Users/Jack/GH-Nevi/Project.xml",
+		"/C/Users/Jack/GH-Nevi/source/Player.hx",
+		"/C/Users/Jack/ZJ-FTP/ZJ-FTP.sublime-project",
+		"/C/Users/Jack/ZJ-FTP/source/AssetPaths.hx"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"C:\\Users\\Jack\\Documents\\spacegame2\\source",
+			"C:\\Users\\Jack\\Documents\\spacegame2\\source,C:\\HaxeToolkit\\haxe\\lib\\advengine\\git\\adventure",
+			"C:\\Users\\Jack\\Documents\\spacegame2\\source"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Global.cutscene = trueAAA;",
+			"Global.cutscene = false;",
+			"Global.cutscene = true;",
+			"Global.cutscene ?= ?false;",
+			"Global.canInteract",
+			"false",
+			"customName = \" \";",
+			"v_use",
+			"USE(",
+			"use(",
+			"v_use",
+			"55",
+			";\n",
+			"grp",
+			"coin",
+			"pri",
+			"settil",
+			"mwall",
+			"entites",
+			"entities",
+			"place"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"Global.cutscene = true;",
+			"Global.cutscene = false;",
+			"Global.cutscene = trueAAA;",
+			"Global.cutscene",
+			"hidden = true;"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "source/AssetPaths.hx",
+					"settings":
+					{
+						"buffer_size": 98,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"haxe-build-id": 0,
+							"syntax": "Packages/Haxe/Haxe.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "source/MenuState.hx",
+					"settings":
+					{
+						"buffer_size": 769,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								163,
+								163
+							]
+						],
+						"settings":
+						{
+							"haxe-build-id": 0,
+							"syntax": "Packages/Haxe/Haxe.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 726.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 183.0
+	},
+	"replace":
+	{
+		"height": 70.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 268.0,
+	"status_bar_visible": true
+}
