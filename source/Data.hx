@@ -7,7 +7,7 @@ class Data {
 
     public static var CurrentGalaxy = PROTECTED;
     public static var PlottedLocation:Either<Planet,SpaceStation> = null;
-    public static var CurrentLocation:Either<Planet, SpaceStation> = Left(PLANET_1);
+    public static var CurrentLocation:Either<Planet, SpaceStation> = Left(Dimium);
 
     public static var Fuel(default,set):Int;
     public static var MaxFuel;
@@ -22,7 +22,7 @@ class Data {
         // Add stock to planets here!
 
         //Example
-        Info[Left(PLANET_1)].stock.setAmount(COW, 10);
+        Info[Left(Dimium)].stock.setAmount(COW, 10);
         //Info[Left(Rilsuk)].stock.setAmount(COW, 10);
 
     }
@@ -57,7 +57,7 @@ class Data {
             }
         },
 
-        Left(PLANET_1) => {
+        Left(Dimium) => {
             galaxy: PROTECTED,
             mapPosition: {
                 x : 33,
@@ -197,7 +197,7 @@ enum Galaxy {
 }
 
 enum Planet {
-    PLANET_1;
+    Dimium;
     Rilsuk;
     Zemroid;
     Amutlis;
