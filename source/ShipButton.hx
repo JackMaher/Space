@@ -44,7 +44,7 @@ class ShipButton extends FlxGroup {
         var over = area.overlapsPoint(FlxG.mouse.getScreenPosition());
 
         text.visible = over;
-        if(FlxG.mouse.justPressed && over && ShipScreen.CurrentMode == NORMAL)
+        if(FlxG.mouse.justPressed && over)
             if(callback != null) callback();
 
     }

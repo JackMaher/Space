@@ -10,6 +10,12 @@ class FrontScene extends FlxSprite {
 
         super();
 
+        reload();
+
+    }
+
+    public function reload() {
+
         var path = 'assets/images/';
 
         switch(Data.CurrentLocation) {

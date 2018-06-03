@@ -4,7 +4,10 @@ import haxe.ds.Either;
 
 class Data {
 
+    public static var CurrentGalaxy = PROTECTED;
+    public static var PlottedLocation:Either<Planet,SpaceStation> = null;
     public static var CurrentLocation:Either<Planet, SpaceStation> = Left(PLANET_1);
+
     public static var Fuel(default,set):Int = 25;
 
     public static var MaxFuel = 25;
@@ -22,14 +25,33 @@ class Data {
     public static var Cargo = new Storage<Item>();
 
     public static var ItemDetails = [
-        COW => "Moo goes the Cow. Moo indeed. The Hickzoids are known to use cows as their brides, however such pratices are frown upon in space socitity today.",
+        COW => "Moo goes the Cow. Moo indeed. The Hickzoids are known to use cows as their brides, however such pratices are frown upon in space society today.",
         PORN => "Mucky Mags have been a stable of intergalactic top shelf reststop scene. However, since the galactic police banned them in the protected zone they've become highly saught after by protected space truckers alike."
+    ];
+
+    public static var MapInfo = [
+        PROTECTED => [
+            // X and Y positions on the whole screen
+            Left(PLANET_1) => {
+                x: 20,
+                y: 20
+            },
+            Left(PLANET_2) => {
+                x:70,
+                y:35
+            }
+        ]
     ];
 
 }
 
+enum Galaxy {
+    PROTECTED;
+}
+
 enum Planet {
     PLANET_1;
+    PLANET_2;
 }
 
 enum SpaceStation {

@@ -26,9 +26,6 @@ class Inventory extends FlxGroup {
 
         super();
 
-        Data.Cargo.add(COW, 15);
-        Data.Cargo.add(PORN, 30);
-
         selected = null;
 
         bg = new FlxSprite("assets/images/inven.png");
@@ -54,6 +51,8 @@ class Inventory extends FlxGroup {
 
         heading = new FlxText(TM.x+10, TM.y+50);
         heading.setFormat("assets/pixelade.ttf", 50, 0xffffffff);
+        if(Data.Cargo.allItems().length == 0)
+            heading.text = "Cargo hold is empty.";
         add(heading);
 
         inStockText = new FlxText(TM.x+10, TM.y+55, 410);

@@ -31,15 +31,27 @@ class HUD extends FlxGroup {
 
         add(new ShipButton(46,49,21,12,44,40,"Communication"));
 
-        add(new ShipButton(30,55,13,8,30,43,"Map"));
+        var pressMap = function() {
+            if(ShipScreen.CurrentMode != NORMAL) return;
+            var ss = cast(FlxG.state, ShipScreen);
+            ss.backLayer.add(new MapDialog());
+            ShipScreen.CurrentMode = MAP;
+        }
+        add(new ShipButton(30,55,13,8,30,43,"Map", pressMap));
 
         var pressInv = function() {
+            if(ShipScreen.CurrentMode != NORMAL) return;
             FlxG.state.add(new Inventory());
             ShipScreen.CurrentMode = INVENTORY;
         }
         add(new ShipButton(47,1,19,8,47,13,"Inventory", pressInv));
 
-        add(new ShipButton(69,55,11,8,70,43,"Throttle"));
+        var pressThrottle = function() {
+            if(ShipScreen.CurrentMode != NORMAL) return;
+            var ss = cast(FlxG.state, ShipScreen);
+            ss.travel();
+        }
+        add(new ShipButton(69,55,11,8,70,43,"Throttle", pressThrottle));
 
         add(new CashReadout());
 
