@@ -1,6 +1,5 @@
 package;
 
-import textbox.Textbox;
 import flixel.group.FlxSpriteGroup;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
