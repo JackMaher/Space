@@ -78,7 +78,7 @@ class ShipScreen extends FlxState {
         Data.PlottedLocation = null;
 
         front.tween({alpha:0}, 1);
-        new FlxTimer().start(1, function(_) { FlxG.camera.shake(0.01, 3); });
+        new FlxTimer().start(1, function(_) { FlxG.camera.shake(0.01, 3.5); });
         new FlxTimer().start(4, function(_) {
             front.reload();
             front.tween({alpha:1}, 1);
