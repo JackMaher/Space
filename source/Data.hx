@@ -15,7 +15,7 @@ class Data {
     public static var Cash(default,default):Int = 350;
 
     public static function set_Fuel(F) {
-        Fuel = F;
+        Fuel = Std.int(F);
         if(Fuel > MaxFuel) Fuel = MaxFuel;
         if(Fuel < 0)       Fuel = 0;
 

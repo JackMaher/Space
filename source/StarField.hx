@@ -9,7 +9,7 @@ class StarField extends FlxShader {
         uniform float time;
         float speed = 2.0;
 
-        float rand(vec2 co){
+        float ran(vec2 co){
             return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
         }
 
@@ -44,7 +44,7 @@ class StarField extends FlxShader {
 
                     float amtNum = 3.0;
 
-                    vec4 color = vec4((mod(r2 - time * speed + rand(vec2(0.0,at))*amtNum, amtNum)-amtNum+0.2)*sqrt(r2*16.0));
+                    vec4 color = vec4((mod(r2 - time * speed + ran(vec2(0.0,at))*amtNum, amtNum)-amtNum+0.2)*sqrt(r2*16.0));
                 //}
 
                 gl_FragColor = color;
