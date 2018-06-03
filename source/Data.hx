@@ -12,7 +12,7 @@ class Data {
 
     public static var MaxFuel = 25;
 
-    public static var Cash(default,default):Int = 350;
+    public static var Cash(default,default):Int = 100;
 
     public static function set_Fuel(F) {
         Fuel = Std.int(F);
@@ -40,6 +40,26 @@ class Data {
                 x:70,
                 y:35
             }
+        ]
+    ];
+
+    public static var Prices = [
+        PROTECTED => [
+            Left(PLANET_1) => [
+                COW => 5,
+                PORN => 10
+            ],
+            Left(PLANET_2) => [
+                COW => 10,
+                PORN => 5
+            ]
+        ]
+    ];
+
+    public static var Stock = [
+        PROTECTED => [
+            Left(PLANET_1) => new Storage<Item>(),
+            Left(PLANET_2) => new Storage<Item>()
         ]
     ];
 

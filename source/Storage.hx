@@ -35,6 +35,8 @@ class Storage<T:EnumValue> {
 
         map[Item] -= Amount;
 
+        if(map[Item] == 0) map.remove(Item);
+
         return true;
     }
 

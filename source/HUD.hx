@@ -29,7 +29,14 @@ class HUD extends FlxGroup {
 
         add(new ShipButton(19,1,19,6,19,10,"Cash"));
 
-        add(new ShipButton(46,49,21,12,44,40,"Communication"));
+        var pressComm = function() {
+            if(ShipScreen.CurrentMode != NORMAL) return;
+            var ss = cast(FlxG.state, ShipScreen);
+            ss.add(new Comms());
+            ShipScreen.CurrentMode = COMMS;
+        }
+
+        add(new ShipButton(46,49,21,12,44,40,"Communication", pressComm));
 
         var pressMap = function() {
             if(ShipScreen.CurrentMode != NORMAL) return;

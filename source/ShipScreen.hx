@@ -13,6 +13,8 @@ import flixel.text.FlxText;
 using ScaledSprite;
 using flixel.tweens.FlxTween;
 import flixel.FlxCamera;
+import haxe.ds.Either;
+import Data;
 
 class ShipScreen extends FlxState {
 
@@ -54,6 +56,9 @@ class ShipScreen extends FlxState {
         starSprite.shader = stars;
 
         stars.time.value = [0.0];
+
+        Data.Stock[PROTECTED][Left(PLANET_1)].add(COW, 10);
+        Data.Stock[PROTECTED][Left(PLANET_1)].add(PORN, 5);
 
     }
 
