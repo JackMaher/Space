@@ -23,6 +23,7 @@ class Data {
 
         //Example
         Info[Left(PLANET_1)].stock.setAmount(COW, 10);
+        //Info[Left(Rilsuk)].stock.setAmount(COW, 10);
 
     }
 
@@ -41,11 +42,26 @@ class Data {
 
     public static var Info:Map<Either<Planet,SpaceStation>,PlanetInfo> = [
 
+        Right(SPACE_STATION) => {
+            galaxy: PROTECTED,
+            mapPosition: {
+                x: 85,
+                y: 20
+            },
+            stock: new Storage(),
+            prices: [ FUEL => 5 ],
+            talk: {
+                name: "Bubba",
+                message: "Hey what's going on YouTube my name is Bubba and on today's unboxing video we're going to be opening a portal to Hell. \n\n Don't forget to destroy that like button!",
+                color:FlxColor.ORANGE
+            }
+        },
+
         Left(PLANET_1) => {
             galaxy: PROTECTED,
             mapPosition: {
-                x : 20,
-                y : 20
+                x : 33,
+                y : 16
             },
             stock: new Storage(),
             prices: [
@@ -59,15 +75,15 @@ class Data {
             }
 
         },
-        Left(PLANET_2) => {
+        Left(Rilsuk) => {
             galaxy: PROTECTED,
             mapPosition: {
-                x: 70,
-                y: 35
+                x: 28,
+                y: 29
             },
             stock: new Storage(),
             prices: [
-                COW  => 10,
+                COW  => 15,
                 PORN => 5
             ],
             talk: {
@@ -76,20 +92,74 @@ class Data {
                 color:FlxColor.ORANGE
             }
         },
-        Right(SPACE_STATION) => {
+        Left(Zemroid) => {
             galaxy: PROTECTED,
             mapPosition: {
-                x: 90,
-                y: 20
+                x: 38,
+                y: 34
             },
             stock: new Storage(),
-            prices: [ FUEL => 5 ],
+            prices: [
+                COW  => 15,
+                PORN => 5
+            ],
             talk: {
                 name: "Bubba",
                 message: "Hey what's going on YouTube my name is Bubba and on today's unboxing video we're going to be opening a portal to Hell. \n\n Don't forget to destroy that like button!",
                 color:FlxColor.ORANGE
             }
-        }
+        },
+        Left(Amutlis) => {
+            galaxy: PROTECTED,
+            mapPosition: {
+                x: 50,
+                y: 24
+            },
+            stock: new Storage(),
+            prices: [
+                COW  => 15,
+                PORN => 5
+            ],
+            talk: {
+                name: "Bubba",
+                message: "Hey what's going on YouTube my name is Bubba and on today's unboxing video we're going to be opening a portal to Hell. \n\n Don't forget to destroy that like button!",
+                color:FlxColor.ORANGE
+            }
+        },
+       Left(Smega9) => {
+            galaxy: PROTECTED,
+            mapPosition: {
+                x: 70,
+                y: 18
+            },
+            stock: new Storage(),
+            prices: [
+                COW  => 15,
+                PORN => 5
+            ],
+            talk: {
+                name: "Bubba",
+                message: "Hey what's going on YouTube my name is Bubba and on today's unboxing video we're going to be opening a portal to Hell. \n\n Don't forget to destroy that like button!",
+                color:FlxColor.ORANGE
+            }
+        },
+       Left(Nomusroid) => {
+            galaxy: PROTECTED,
+            mapPosition: {
+                x: 83,
+                y: 38
+            },
+            stock: new Storage(),
+            prices: [
+                COW  => 15,
+                PORN => 5
+            ],
+            talk: {
+                name: "Bubba",
+                message: "Hey what's going on YouTube my name is Bubba and on today's unboxing video we're going to be opening a portal to Hell. \n\n Don't forget to destroy that like button!",
+                color:FlxColor.ORANGE
+            }
+        },
     ];
 
 
@@ -128,7 +198,11 @@ enum Galaxy {
 
 enum Planet {
     PLANET_1;
-    PLANET_2;
+    Rilsuk;
+    Zemroid;
+    Amutlis;
+    Smega9;
+    Nomusroid;
 }
 
 enum SpaceStation {
