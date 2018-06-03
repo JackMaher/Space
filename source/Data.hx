@@ -1,6 +1,7 @@
 package;
 
 import haxe.ds.Either;
+import flixel.util.FlxColor;
 
 class Data {
 
@@ -18,18 +19,10 @@ class Data {
         Cash = 250;
         Fuel = 25;
 
-        // Set the stock of everywhere to 0
-        for(loc in Type.allEnums(Planet)) {
-            Stock[Left(loc)] = new Storage<Item>();
-        }
-        for(loc in Type.allEnums(SpaceStation)) {
-            Stock[Right(loc)] = new Storage<Item>();
-        }
-
         // Add stock to planets here!
 
         //Example
-        Stock[Left(PLANET_1)].setAmount(COW, 10);
+        Info[Left(PLANET_1)].stock.setAmount(COW, 10);
 
     }
 
@@ -46,46 +39,67 @@ class Data {
         PORN => "Mucky Mags have been a stable of intergalactic top shelf reststop scene. However, since the galactic police banned them in the protected zone they've become highly saught after by protected space truckers alike."
     ];
 
-    public static var MapInfo = [
-        PROTECTED => [
-            // X and Y positions on the whole screen
-            Left(PLANET_1) => {
-                x: 20,
-                y: 20
+    public static var Info:Map<Either<Planet,SpaceStation>,PlanetInfo> = [
+
+        Left(PLANET_1) => {
+            galaxy: PROTECTED,
+            mapPosition: {
+                x : 20,
+                y : 20
             },
-            Left(PLANET_2) => {
-                x:70,
-                y:35
+            stock: new Storage(),
+            prices: [
+                COW => 10,
+                PORN => 5
+            ],
+            talk: {
+                name: "Bubba",
+                message: "Hey what's going on YouTube my name is Bubba and on today's unboxing video we're going to be opening a portal to Hell. \n\n Don't forget to destroy that like button!",
+                color:FlxColor.ORANGE
+            }
+
+        },
+        Left(PLANET_2) => {
+            galaxy: PROTECTED,
+            mapPosition: {
+                x: 70,
+                y: 35
             },
-            Right(SPACE_STATION) => {
+            stock: new Storage(),
+            prices: [
+                COW  => 10,
+                PORN => 5
+            ],
+            talk: {
+                name: "Bubba",
+                message: "Hey what's going on YouTube my name is Bubba and on today's unboxing video we're going to be opening a portal to Hell. \n\n Don't forget to destroy that like button!",
+                color:FlxColor.ORANGE
+            }
+        },
+        Right(SPACE_STATION) => {
+            galaxy: PROTECTED,
+            mapPosition: {
                 x: 90,
                 y: 20
+            },
+            stock: new Storage(),
+            prices: [ FUEL => 5 ],
+            talk: {
+                name: "Bubba",
+                message: "Hey what's going on YouTube my name is Bubba and on today's unboxing video we're going to be opening a portal to Hell. \n\n Don't forget to destroy that like button!",
+                color:FlxColor.ORANGE
             }
-        ]
+        }
     ];
 
-    public static var Prices = [
-        Left(PLANET_1) => [
-            COW => 5,
-            PORN => 10
-        ],
-        Left(PLANET_2) => [
-            COW => 10,
-            PORN => 5
-        ],
-        Right(SPACE_STATION) => [
-            FUEL => 5
-        ]
-    ];
 
-    public static var Stock:Map<Either<Planet, SpaceStation>, Storage<Item>> = new Map();
-
+    // Calculate the cost to get from one location to another
     public static function FuelCost(
             l1: Either<Planet, SpaceStation>,
             l2: Either<Planet, SpaceStation>) {
 
-        var p1 = MapInfo[CurrentGalaxy][l1];
-        var p2 = MapInfo[CurrentGalaxy][l2];
+        var p1 = Info[l1].mapPosition;
+        var p2 = Info[l2].mapPosition;
 
         if(p1 == null) throw '${Std.string(l1)} doesn\'t have a location in this galaxy!';
         if(p2 == null) throw '${Std.string(l2)} doesn\'t have a location in this galaxy!';
@@ -98,6 +112,14 @@ class Data {
 
     }
 
+}
+
+typedef PlanetInfo = {
+    galaxy:Galaxy,
+    mapPosition:{ x:Int, y:Int },
+    stock:Storage<Item>,
+    prices:Map<Item, Int>,
+    talk:{ name:String, message:String, color:Int }
 }
 
 enum Galaxy {

@@ -99,4 +99,5 @@ enum Mode {
     MAP;
     COMMS;
     FLYING;
+    TALK;
 }

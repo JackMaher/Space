@@ -27,16 +27,16 @@ class MapDialog extends FlxGroup {
         bg.scaleUp();
         add(bg);
 
-        var planetSet = Data.MapInfo[Data.CurrentGalaxy];
+        var planets = [];
+        for(loc in Data.Info.keys()) {
+            var location = Data.Info[loc];
+            if(location.galaxy != Data.CurrentGalaxy) continue;
 
-        for(p in planetSet.keys()) {
-            var planet = planetSet[p];
 
-
-            var pSpr = new FlxSprite(planet.x*10, planet.y*10);
+            var pSpr = new FlxSprite(location.mapPosition.x*10, location.mapPosition.y*10);
             var cg = Std.string(Data.CurrentGalaxy).toLowerCase();
             var pn;
-            switch(p) {
+            switch(loc) {
                 case Left(p):
                     pn = Std.string(p).toLowerCase();
                 case Right(ss):
@@ -62,21 +62,21 @@ class MapDialog extends FlxGroup {
 
 
             var butt = new ShipButton(
-                Std.int(planet.x), Std.int(planet.y),
+                Std.int(location.mapPosition.x), Std.int(location.mapPosition.y),
                 Std.int(pSpr.width), Std.int(pSpr.height),
-                Std.int(planet.x)-3, Std.int(planet.y)-8,
-                pn, pickPlanet.bind(p, pHl)
+                Std.int(location.mapPosition.x)-3, Std.int(location.mapPosition.y)-8,
+                pn, pickPlanet.bind(loc, pHl)
             );
             add(butt);
             var len = pn.length;
-            butt.text.text += '\n ${Data.FuelCost(p, Data.CurrentLocation)} Fuel';
+            butt.text.text += '\n ${Data.FuelCost(loc, Data.CurrentLocation)} Fuel';
             butt.text.addFormat(new FlxTextFormat(FlxColor.ORANGE), len+1, 1000);
 
-            if(Data.CurrentLocation == p) {
+            if(Data.CurrentLocation == loc) {
                 pHl.visible = true;
             }
-            if(Data.PlottedLocation == p) {
-                pickPlanet(p,pHl);
+            if(Data.PlottedLocation == loc) {
+                pickPlanet(loc,pHl);
             }
 
         }

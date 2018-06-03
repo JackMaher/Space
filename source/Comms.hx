@@ -101,9 +101,13 @@ class Comms extends FlxGroup {
 
         switch(I) {
             case TALK:
+                kill();
+                ShipScreen.CurrentMode = TALK;
+                var ss = cast(FlxG.state, ShipScreen);
+                ss.add(new TalkDialog());
 
             case BUY:
-                var stock = Data.Stock[Data.CurrentLocation].allItems();
+                var stock = Data.Info[Data.CurrentLocation].stock.allItems();
                 if(stock.length == 0)
                     warning.text = "This location has no goods to sell.";
 
@@ -267,7 +271,7 @@ class TradeBtn extends FlxSpriteGroup {
         thumb.y = 10;
         thumb.scaleUp();
 
-        cost = Data.Prices[Data.CurrentLocation][item];
+        cost = Data.Info[Data.CurrentLocation].prices[item];
 
         var costBg = new FlxSprite(ButtonWidth-230, 10).makeGraphic(80,50, 0xff000000, true);
         add(costBg);
@@ -326,7 +330,7 @@ class TradeBtn extends FlxSpriteGroup {
         Data.Cash -= Amount * cost;
 
         Data.Cargo.add(Item, Amount);
-        Data.Stock[Data.CurrentLocation].remove(Item, Amount);
+        Data.Info[Data.CurrentLocation].stock.remove(Item, Amount);
     }
 
     function sellStock(Item:Item, Amount:Int) {
@@ -336,7 +340,7 @@ class TradeBtn extends FlxSpriteGroup {
         Data.Cash += Amount * cost;
 
         Data.Cargo.remove(Item, Amount);
-        Data.Stock[Data.CurrentLocation].add(Item, Amount);
+        Data.Info[Data.CurrentLocation].stock.add(Item, Amount);
     }
 
     function updateStock() {
@@ -344,7 +348,7 @@ class TradeBtn extends FlxSpriteGroup {
         itemLabel.text = name.substr(0,1)+name.substr(1).toLowerCase();
 
         switch(type) {
-            case BUY:    stock = Data.Stock[Data.CurrentLocation].getAmount(item);
+            case BUY:    stock = Data.Info[Data.CurrentLocation].stock.getAmount(item);
             case SELL:   stock = Data.Cargo.getAmount(item);
             case REFUEL: stock = Data.MaxFuel - Data.Fuel;
             default:
