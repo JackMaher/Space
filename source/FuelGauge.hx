@@ -15,6 +15,7 @@ class FuelGauge extends FlxGroup {
     var gauge:FlxSprite;
     var text:FlxText;
     var internalFuel:Float = Data.Fuel;
+    
 
     override public function new() {
         super();
