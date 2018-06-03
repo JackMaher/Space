@@ -23,7 +23,8 @@ class FrontScene extends FlxSprite {
                 path += "planet-scenes/";
                 path += Std.string(l).toLowerCase() + ".png";
             case Right(r):
-                path += "spacestation.png";
+                path += "spacestation-scenes/";
+                path += Std.string(r).toLowerCase() + ".png";
         }
 
         loadGraphic(path);

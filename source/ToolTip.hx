@@ -30,6 +30,8 @@ class ToolTip extends FlxGroup {
         text.text = " " + TText.toUpperCase();
         text.setFormat("assets/pixelade.ttf", 40, FlxColor.WHITE);
         text.setBorderStyle(OUTLINE, FlxColor.BLACK, 4);
+
+        text.visible = false;
         add(text);
 
 

@@ -57,9 +57,6 @@ class ShipScreen extends FlxState {
 
         stars.time.value = [0.0];
 
-        Data.Stock[PROTECTED][Left(PLANET_1)].add(COW, 10);
-        Data.Stock[PROTECTED][Left(PLANET_1)].add(PORN, 5);
-
     }
 
     override public function update(elapsed:Float) {
@@ -84,14 +81,14 @@ class ShipScreen extends FlxState {
 
         front.tween({alpha:0}, 1);
         new FlxTimer().start(1, function(_) {
-            FlxG.camera.shake(0.01, 3.5);
-            Data.tween({Fuel:Data.Fuel-fuelCost}, 3);
+            FlxG.camera.shake(0.01, fuelCost+0.5);
+            Data.tween({Fuel:Data.Fuel-fuelCost}, fuelCost);
          });
-        new FlxTimer().start(4, function(_) {
+        new FlxTimer().start(fuelCost+1, function(_) {
             front.reload();
             front.tween({alpha:1}, 1);
         });
-        new FlxTimer().start(5, function(_) { CurrentMode = NORMAL; } );
+        new FlxTimer().start(fuelCost+2, function(_) { CurrentMode = NORMAL; } );
     }
 
 }

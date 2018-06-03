@@ -13,8 +13,8 @@ class FuelGauge extends FlxGroup {
     var timeTotal:Float = 0;
 
     var gauge:FlxSprite;
-    
     var text:FlxText;
+    var internalFuel:Float = Data.Fuel;
 
     override public function new() {
         super();
@@ -42,7 +42,9 @@ class FuelGauge extends FlxGroup {
         super.update(elapsed);
         timeTotal += elapsed;
 
-        var fuelProportion = Data.Fuel / Data.MaxFuel;
+        internalFuel += (Data.Fuel - internalFuel) / 20;
+
+        var fuelProportion = internalFuel / Data.MaxFuel;
 
         if(fuelProportion <= 0.2)      gauge.color =
             Math.floor(timeTotal * 2) % 2 == 0
@@ -53,7 +55,7 @@ class FuelGauge extends FlxGroup {
 
         gauge.scale.x = fuelProportion * MaxWidth;
 
-        text.text = Std.string(Data.Fuel);
+        text.text = Std.string(Math.round(internalFuel));
 
     }
 

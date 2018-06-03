@@ -8,11 +8,30 @@ class Data {
     public static var PlottedLocation:Either<Planet,SpaceStation> = null;
     public static var CurrentLocation:Either<Planet, SpaceStation> = Left(PLANET_1);
 
-    public static var Fuel(default,set):Int = 25;
+    public static var Fuel(default,set):Int;
+    public static var MaxFuel;
+    public static var Cargo = new Storage<Item>();
+    public static var Cash(default,default):Int;
 
-    public static var MaxFuel = 25;
+    public static function Start() {
+        MaxFuel = 25;
+        Cash = 250;
+        Fuel = 25;
 
-    public static var Cash(default,default):Int = 100;
+        // Set the stock of everywhere to 0
+        for(loc in Type.allEnums(Planet)) {
+            Stock[Left(loc)] = new Storage<Item>();
+        }
+        for(loc in Type.allEnums(SpaceStation)) {
+            Stock[Right(loc)] = new Storage<Item>();
+        }
+
+        // Add stock to planets here!
+
+        //Example
+        Stock[Left(PLANET_1)].setAmount(COW, 10);
+
+    }
 
     public static function set_Fuel(F) {
         Fuel = Std.int(F);
@@ -21,8 +40,6 @@ class Data {
 
         return Fuel;
     }
-
-    public static var Cargo = new Storage<Item>();
 
     public static var ItemDetails = [
         COW => "Moo goes the Cow. Moo indeed. The Hickzoids are known to use cows as their brides, however such pratices are frown upon in space society today.",
@@ -39,29 +56,29 @@ class Data {
             Left(PLANET_2) => {
                 x:70,
                 y:35
+            },
+            Right(SPACE_STATION) => {
+                x: 90,
+                y: 20
             }
         ]
     ];
 
     public static var Prices = [
-        PROTECTED => [
-            Left(PLANET_1) => [
-                COW => 5,
-                PORN => 10
-            ],
-            Left(PLANET_2) => [
-                COW => 10,
-                PORN => 5
-            ]
+        Left(PLANET_1) => [
+            COW => 5,
+            PORN => 10
+        ],
+        Left(PLANET_2) => [
+            COW => 10,
+            PORN => 5
+        ],
+        Right(SPACE_STATION) => [
+            FUEL => 5
         ]
     ];
 
-    public static var Stock = [
-        PROTECTED => [
-            Left(PLANET_1) => new Storage<Item>(),
-            Left(PLANET_2) => new Storage<Item>()
-        ]
-    ];
+    public static var Stock:Map<Either<Planet, SpaceStation>, Storage<Item>> = new Map();
 
     public static function FuelCost(
             l1: Either<Planet, SpaceStation>,
@@ -99,4 +116,5 @@ enum SpaceStation {
 enum Item {
     COW;
     PORN;
+    FUEL;
 }

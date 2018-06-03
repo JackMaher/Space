@@ -40,13 +40,23 @@ class Comms extends FlxGroup {
         var TM = {x:470,y:90};
 
         var i = 0;
-        for(item in Type.allEnums(CommOption)) {
-            var b = new CommsBtn(i++, item, function() {
-                switchOption(item);
-            });
-            add(b);
-        }
 
+        switch(Data.CurrentLocation) {
+            case Left(p):
+                for(opt in [TALK,BUY,SELL]) {
+                    var b = new CommsBtn(i++, opt, function() {
+                        switchOption(opt);
+                    });
+                    add(b);
+                };
+            case Right(ss):
+                for(opt in [TALK, REFUEL]) {
+                    var b = new CommsBtn(i++, opt, function() {
+                        switchOption(opt);
+                    });
+                    add(b);
+                }
+        }
 
         screenTitle = new FlxText(TM.x, TM.y, 440);
         screenTitle.setFormat("assets/pixelade.ttf", 40, 0xffffffff, CENTER);
@@ -93,7 +103,7 @@ class Comms extends FlxGroup {
             case TALK:
 
             case BUY:
-                var stock = Data.Stock[Data.CurrentGalaxy][Data.CurrentLocation].allItems();
+                var stock = Data.Stock[Data.CurrentLocation].allItems();
                 if(stock.length == 0)
                     warning.text = "This location has no goods to sell.";
 
@@ -115,6 +125,10 @@ class Comms extends FlxGroup {
                     var b = new TradeBtn(opt++, i, SELL);
                     rightItems.add(b);
                 }
+
+            case REFUEL:
+                var b = new TradeBtn(0, FUEL, REFUEL);
+                rightItems.add(b);
 
         }
 
@@ -253,7 +267,7 @@ class TradeBtn extends FlxSpriteGroup {
         thumb.y = 10;
         thumb.scaleUp();
 
-        cost = Data.Prices[Data.CurrentGalaxy][Data.CurrentLocation][item];
+        cost = Data.Prices[Data.CurrentLocation][item];
 
         var costBg = new FlxSprite(ButtonWidth-230, 10).makeGraphic(80,50, 0xff000000, true);
         add(costBg);
@@ -271,12 +285,18 @@ class TradeBtn extends FlxSpriteGroup {
 
         updateStock();
 
-        var x1 = new TradeAmtButton(1, (type == BUY ? buyStock : sellStock).bind(item), this);
+        var tradeFunc = [
+            BUY => buyStock,
+            SELL => sellStock,
+            REFUEL => buyFuel
+        ][type];
+
+        var x1 = new TradeAmtButton(1, tradeFunc.bind(item), this);
         x1.x = ButtonWidth-140;
         x1.y = 10;
         add(x1);
 
-        var x10 = new TradeAmtButton(10, (type == BUY ? buyStock : sellStock).bind(item), this);
+        var x10 = new TradeAmtButton(10, tradeFunc.bind(item), this);
         x10.x = ButtonWidth-70;
         x10.y = 10;
         add(x10);
@@ -284,6 +304,17 @@ class TradeBtn extends FlxSpriteGroup {
         x = TopLeft.x;
         y = TopLeft.y + ButtonHeight * index;
 
+
+    }
+
+    function buyFuel(Item:Item, Amount:Int) {
+        if(type != REFUEL) return;
+
+        if(Amount * cost > Data.Cash) return;
+        if(stock < Amount) return;
+
+        Data.Fuel += Amount;
+        Data.Cash -= Amount * cost;
 
     }
 
@@ -295,7 +326,7 @@ class TradeBtn extends FlxSpriteGroup {
         Data.Cash -= Amount * cost;
 
         Data.Cargo.add(Item, Amount);
-        Data.Stock[Data.CurrentGalaxy][Data.CurrentLocation].remove(Item, Amount);
+        Data.Stock[Data.CurrentLocation].remove(Item, Amount);
     }
 
     function sellStock(Item:Item, Amount:Int) {
@@ -305,20 +336,24 @@ class TradeBtn extends FlxSpriteGroup {
         Data.Cash += Amount * cost;
 
         Data.Cargo.remove(Item, Amount);
-        Data.Stock[Data.CurrentGalaxy][Data.CurrentLocation].add(Item, Amount);
+        Data.Stock[Data.CurrentLocation].add(Item, Amount);
     }
 
     function updateStock() {
 
         itemLabel.text = name.substr(0,1)+name.substr(1).toLowerCase();
 
-        if(type == BUY) {
-            stock = Data.Stock[Data.CurrentGalaxy][Data.CurrentLocation].getAmount(item);
+        switch(type) {
+            case BUY:    stock = Data.Stock[Data.CurrentLocation].getAmount(item);
+            case SELL:   stock = Data.Cargo.getAmount(item);
+            case REFUEL: stock = Data.MaxFuel - Data.Fuel;
+            default:
+                         throw "Stock update during TALK option?";
         }
-        else if(type == SELL) {
-            stock = Data.Cargo.getAmount(item);
+
+        if(type != REFUEL) {
+            itemLabel.text += 'x$stock';
         }
-        itemLabel.text += 'x$stock';
 
     }
 
@@ -384,7 +419,6 @@ class TradeAmtButton extends FlxSpriteGroup {
             color = 0xff999999;
         }
 
-
     }
 
 
@@ -394,4 +428,5 @@ enum CommOption {
     TALK;
     BUY;
     SELL;
+    REFUEL;
 }

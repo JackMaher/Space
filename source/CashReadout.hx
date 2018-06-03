@@ -29,7 +29,6 @@ class Cash extends FlxSpriteGroup {
 
     var totalElapsed:Float = 0;
     var newTotalCash = 350;
-    var totalCash:Float = 350;
 
     override public function new(X, Y, Width:Int) {
 

@@ -47,14 +47,14 @@ class MapDialog extends FlxGroup {
 
             var pHl = new FlxSprite();
             pHl.antialiasing = false;
-            pHl.makeGraphic(Std.int(pSpr.width+2), Std.int(pSpr.height+2), 0x00000000, true);
+            pHl.makeGraphic(Std.int(pSpr.width+2), Std.int(pSpr.width+2), 0x00000000, true);
             for(x in 0...20) {
             pHl.drawCircle(Std.int(pSpr.width/2)+1.5, Std.int(pSpr.width/2)+1.5,
-                    pSpr.height/2+1, 0xffffffff, null, {smoothing:false});
+                    pSpr.width/2, 0x00ffffff, {color:0xffffffff, thickness:1} , {smoothing:false});
             }
             pHl.scaleUp();
-            pHl.x = pSpr.x - 10;
-            pHl.y = pSpr.y - 10;
+            pHl.x = pSpr.x + (pSpr.width/2 - pHl.width/2)*10;
+            pHl.y = pSpr.y + (pSpr.height/2 - pHl.height/2)*10;
             pHl.visible = false;
             add(pHl);
 
