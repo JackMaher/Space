@@ -9,7 +9,7 @@ import flixel.FlxG;
 class ShipButton extends FlxGroup {
 
     var area:FlxSprite;
-    var text:FlxText;
+    public var text:FlxText;
     var callback:Void->Void;
 
     override public function new(X,Y,W,H,TX,TY,TText, Callback=null) {
@@ -31,6 +31,7 @@ class ShipButton extends FlxGroup {
         text.text = " " + TText.toUpperCase();
         text.setFormat("assets/pixelade.ttf", 40, FlxColor.WHITE);
         text.setBorderStyle(OUTLINE, FlxColor.BLACK, 4);
+
         add(text);
 
         callback = Callback;

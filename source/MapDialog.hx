@@ -6,7 +6,9 @@ import Data;
 import flixel.group.FlxGroup;
 import haxe.ds.Either;
 using ScaledSprite;
+import flixel.util.FlxColor;
 using flixel.util.FlxSpriteUtil;
+import flixel.text.FlxText;
 
 class MapDialog extends FlxGroup {
 
@@ -17,6 +19,9 @@ class MapDialog extends FlxGroup {
     public function new() {
 
         super();
+
+        FlxG.stage.quality = flash.display.StageQuality.LOW;
+        FlxG.camera.antialiasing = false;
 
         bg = new FlxSprite("assets/images/mapback.png");
         bg.scaleUp();
@@ -41,10 +46,12 @@ class MapDialog extends FlxGroup {
             pSpr.scaleUp();
 
             var pHl = new FlxSprite();
+            pHl.antialiasing = false;
             pHl.makeGraphic(Std.int(pSpr.width+2), Std.int(pSpr.height+2), 0x00000000, true);
+            for(x in 0...20) {
             pHl.drawCircle(Std.int(pSpr.width/2)+1.5, Std.int(pSpr.width/2)+1.5,
-                    pSpr.height/2+1, 0xffffffff, null, {
-                        smoothing:false});
+                    pSpr.height/2+1, 0xffffffff, null, {smoothing:false});
+            }
             pHl.scaleUp();
             pHl.x = pSpr.x - 10;
             pHl.y = pSpr.y - 10;
@@ -54,12 +61,16 @@ class MapDialog extends FlxGroup {
             add(pSpr);
 
 
-            add(new ShipButton(
+            var butt = new ShipButton(
                 Std.int(planet.x), Std.int(planet.y),
                 Std.int(pSpr.width), Std.int(pSpr.height),
-                Std.int(planet.x)-3, Std.int(planet.y)-5,
+                Std.int(planet.x)-3, Std.int(planet.y)-8,
                 pn, pickPlanet.bind(p, pHl)
-            ));
+            );
+            add(butt);
+            var len = pn.length;
+            butt.text.text += '\n ${Data.FuelCost(p, Data.CurrentLocation)} Fuel';
+            butt.text.addFormat(new FlxTextFormat(FlxColor.ORANGE), len+1, 1000);
 
             if(Data.CurrentLocation == p) {
                 pHl.visible = true;

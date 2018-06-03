@@ -10,7 +10,6 @@ import openfl.display.Shader;
 import openfl.display.ShaderParameter;
 using flixel.util.FlxSpriteUtil;
 import flixel.text.FlxText;
-import flash.display.StageQuality;
 using ScaledSprite;
 using flixel.tweens.FlxTween;
 import flixel.FlxCamera;
@@ -29,7 +28,7 @@ class ShipScreen extends FlxState {
     override public function create() {
 
         CurrentMode = NORMAL;
-        FlxG.stage.quality = StageQuality.LOW;
+        FlxG.stage.quality = flash.display.StageQuality.LOW;
 
         starSprite = new FlxSprite();
         starSprite.makeGraphic(1140, 630, 0xff000000);
@@ -74,11 +73,15 @@ class ShipScreen extends FlxState {
 
         CurrentMode = FLYING;
 
+        var fuelCost = Data.FuelCost(Data.CurrentLocation,Data.PlottedLocation);
         Data.CurrentLocation = Data.PlottedLocation;
         Data.PlottedLocation = null;
 
         front.tween({alpha:0}, 1);
-        new FlxTimer().start(1, function(_) { FlxG.camera.shake(0.01, 3.5); });
+        new FlxTimer().start(1, function(_) {
+            FlxG.camera.shake(0.01, 3.5);
+            Data.tween({Fuel:Data.Fuel-fuelCost}, 3);
+         });
         new FlxTimer().start(4, function(_) {
             front.reload();
             front.tween({alpha:1}, 1);

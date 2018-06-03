@@ -43,6 +43,24 @@ class Data {
         ]
     ];
 
+    public static function FuelCost(
+            l1: Either<Planet, SpaceStation>,
+            l2: Either<Planet, SpaceStation>) {
+
+        var p1 = MapInfo[CurrentGalaxy][l1];
+        var p2 = MapInfo[CurrentGalaxy][l2];
+
+        if(p1 == null) throw '${Std.string(l1)} doesn\'t have a location in this galaxy!';
+        if(p2 == null) throw '${Std.string(l2)} doesn\'t have a location in this galaxy!';
+
+        var dx = p2.x - p1.x;
+        var dy = p2.y - p1.y;
+
+        var distance = Math.sqrt(dx*dx+dy*dy);
+        return Std.int(Math.max(1, distance/10));
+
+    }
+
 }
 
 enum Galaxy {
