@@ -45,13 +45,7 @@ class MapDialog extends FlxGroup {
             pSpr.loadGraphic('assets/images/${cg}map/${pn}.png');
             pSpr.scaleUp();
 
-            var pHl = new FlxSprite();
-            pHl.antialiasing = false;
-            pHl.makeGraphic(Std.int(pSpr.width+2), Std.int(pSpr.width+2), 0x00000000, true);
-            for(x in 0...20) {
-            pHl.drawCircle(Std.int(pSpr.width/2)+1.5, Std.int(pSpr.width/2)+1.5,
-                    pSpr.width/2, 0x00ffffff, {color:0xffffffff, thickness:1} , {smoothing:false});
-            }
+            var pHl = new Highlight(pSpr);
             pHl.scaleUp();
             pHl.x = pSpr.x + (pSpr.width/2 - pHl.width/2)*10;
             pHl.y = pSpr.y + (pSpr.height/2 - pHl.height/2)*10;
@@ -111,5 +105,44 @@ class MapDialog extends FlxGroup {
 
     }
 
+
+}
+
+class Highlight extends FlxSprite {
+
+    public function new(parent:FlxSprite) {
+
+        super();
+        makeGraphic(Std.int(parent.width)+2, Std.int(parent.height)+2, 0x00ffffff,true);
+
+        function isSolid(i,j) return parent.pixels.getPixel32(i, j)>>24 != 0;
+
+        // check if any in list of points (on parent pixels) are solid
+        function anyP(xs:Array<{x:Int,y:Int}>) {
+            for(x in xs) {
+                if(isSolid(x.x,x.y)) return true;
+            }
+            return false;
+        }
+
+
+        function neighbours(x,y) {
+            return [
+                {x:x,y:y-1},
+                {x:x-1,y:y},
+                {x:x+1,y:y},
+                {x:x,y:y+1}
+            ];
+        }
+
+
+        for(i in 0...pixels.width) {
+            for(j in 0...pixels.height) {
+                if(anyP(neighbours(i-1,j-1)))
+                    pixels.setPixel32(i,j,0xffffffff);
+            }
+        }
+
+    }
 
 }
