@@ -13,6 +13,7 @@ class FuelGauge extends FlxGroup {
     var timeTotal:Float = 0;
 
     var gauge:FlxSprite;
+    
     var text:FlxText;
 
     override public function new() {
