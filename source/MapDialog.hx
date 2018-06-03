@@ -9,6 +9,7 @@ using ScaledSprite;
 import flixel.util.FlxColor;
 using flixel.util.FlxSpriteUtil;
 import flixel.text.FlxText;
+using StringTools;
 
 class MapDialog extends FlxGroup {
 
@@ -59,7 +60,7 @@ class MapDialog extends FlxGroup {
                 Std.int(location.mapPosition.x), Std.int(location.mapPosition.y),
                 Std.int(pSpr.width), Std.int(pSpr.height),
                 Std.int(location.mapPosition.x)-3, Std.int(location.mapPosition.y)-8,
-                pn, pickPlanet.bind(loc, pHl)
+                pn.replace("_"," "), pickPlanet.bind(loc, pHl)
             );
             add(butt);
             var len = pn.length;
