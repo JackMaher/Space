@@ -108,7 +108,8 @@ class Comms extends FlxGroup {
                 ss.add(new TalkDialog());
 
             case BUY:
-                var stock = Data.Info[Data.CurrentLocation].stock.allItems();
+                var stock = Data.Info[Data.CurrentLocation].stock.allItems().filter(
+                        function(i) return Data.Info[Data.CurrentLocation].items[i].basePrice != null);
                 if(stock.length == 0)
                     warning.text = "This location has no goods to sell.";
 
@@ -121,7 +122,8 @@ class Comms extends FlxGroup {
 
 
             case SELL:
-                var cargo = Data.Cargo.allItems();
+                var cargo = Data.Cargo.allItems().filter(
+                        function(i) return Data.Info[Data.CurrentLocation].items[i].basePrice != null);
                 if(cargo.length == 0)
                     warning.text = "There are no goods in cargo.";
 
