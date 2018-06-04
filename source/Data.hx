@@ -23,7 +23,7 @@ class Data {
 
         //Example
         Info[Left(Dimium)].stock.setAmount(COW, 10);
-        //Info[Left(Rilsuk)].stock.setAmount(COW, 10);
+        Info[Left(Zemroid)].stock.setAmount(COW, 15);
 
     }
 
@@ -104,8 +104,8 @@ class Data {
                 PORN => 5
             ],
             talk: {
-                name: "Bubba",
-                message: "Hey what's going on YouTube my name is Bubba and on today's unboxing video we're going to be opening a portal to Hell. \n\n Don't forget to destroy that like button!",
+                name: "Johnny",
+                message: "Did you know it apperently tradition for Hickzoid to marry their cows?",
                 color:FlxColor.ORANGE
             }
         },
