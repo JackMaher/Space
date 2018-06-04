@@ -24,6 +24,7 @@ class Data {
         //Example
         Info[Left(Dimium)].stock.setAmount(COW, 10);
         Info[Left(Zemroid)].stock.setAmount(COW, 15);
+        Info[Left(Rilsuk)].stock.setAmount(LUMIS, 15);
 
     }
 
@@ -37,7 +38,8 @@ class Data {
 
     public static var ItemDetails = [
         COW => "Moo goes the Cow. Moo indeed. The Hickzoids are known to use cows as their brides, however such pratices are frown upon in space society today.",
-        PORN => "Mucky Mags have been a stable of intergalactic top shelf reststop scene. However, since the galactic police banned them in the protected zone they've become highly saught after by protected space truckers alike."
+        PORN => "Mucky Mags have been a stable of intergalactic top shelf reststop scene. However, since the galactic police banned them in the protected zone they've become highly saught after by protected space truckers alike.",
+        LUMIS => "Cute, and delious!",
     ];
 
     public static var Info:Map<Either<Planet,SpaceStation>,PlanetInfo> = [
@@ -84,7 +86,7 @@ class Data {
             stock: new Storage(),
             prices: [
                 COW  => 15,
-                PORN => 5
+                LUMIS => 5
             ],
             talk: {
                 name: "Bubba",
@@ -105,7 +107,7 @@ class Data {
             ],
             talk: {
                 name: "Johnny",
-                message: "Did you know it apperently tradition for Hickzoid to marry their cows?",
+                message: "Did you know it apperently tradition for the Hickzoid to marry their cows?",
                 color:FlxColor.ORANGE
             }
         },
@@ -213,4 +215,5 @@ enum Item {
     COW;
     PORN;
     FUEL;
+    LUMIS;
 }
