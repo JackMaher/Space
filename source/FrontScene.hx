@@ -17,14 +17,15 @@ class FrontScene extends FlxSprite {
     public function reload() {
 
         var path = 'assets/images/';
+        var loc = Data.CurrentLocation;
 
-        switch(Data.CurrentLocation) {
-            case Left(l):
+        switch(Data.Info[loc].type) {
+            case Planet:
                 path += "planet-scenes/";
-                path += Std.string(l).toLowerCase() + ".png";
-            case Right(r):
+                path += loc.toLowerCase() + ".png";
+            case SpaceStation:
                 path += "spacestation-scenes/";
-                path += Std.string(r).toLowerCase() + ".png";
+                path += loc.toLowerCase() + ".png";
         }
 
         loadGraphic(path);

@@ -36,13 +36,7 @@ class MapDialog extends FlxGroup {
 
             var pSpr = new FlxSprite(location.mapPosition.x*10, location.mapPosition.y*10);
             var cg = Std.string(Data.CurrentGalaxy).toLowerCase();
-            var pn;
-            switch(loc) {
-                case Left(p):
-                    pn = Std.string(p).toLowerCase();
-                case Right(ss):
-                    pn = Std.string(ss).toLowerCase();
-            }
+            var pn = loc.toLowerCase();
             pSpr.loadGraphic('assets/images/${cg}map/${pn}.png');
             pSpr.scaleUp();
 
@@ -79,8 +73,8 @@ class MapDialog extends FlxGroup {
 
     }
 
-    function pickPlanet(planet:Either<Planet,SpaceStation>, planetHighlight:FlxSprite) {
-        if(planet == Data.CurrentLocation) return;
+    function pickPlanet(loc:Location, planetHighlight:FlxSprite) {
+        if(loc == Data.CurrentLocation) return;
         if(selected != null) {
             selected.visible = false;
             selected.color = 0xffff0000;
@@ -88,7 +82,7 @@ class MapDialog extends FlxGroup {
         planetHighlight.color = 0xffff0000;
         planetHighlight.visible = true;
         selected = planetHighlight;
-        Data.PlottedLocation = planet;
+        Data.PlottedLocation = loc;
     }
 
     override public function update(elapsed:Float) {

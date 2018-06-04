@@ -89,6 +89,12 @@ class ShipScreen extends FlxState {
             front.tween({alpha:1}, 1);
         });
         new FlxTimer().start(fuelCost+2, function(_) { CurrentMode = NORMAL; } );
+
+        for(i in 0...fuelCost) {
+            Data.AddStock();
+        }
+        Data.CalculatePrices();
+
     }
 
 }

@@ -3,7 +3,7 @@ package;
 import Data;
 
 @:generic
-class Storage<T:EnumValue> {
+class Storage<T:String> {
 
     var map:Map<T,Int>;
 
@@ -17,6 +17,8 @@ class Storage<T:EnumValue> {
 
         map[Item] += Amount;
 
+        if(map[Item] == 0) map.remove(Item);
+
     }
 
     public function getAmount(Item:T):Int {
@@ -27,6 +29,7 @@ class Storage<T:EnumValue> {
 
     public function setAmount(Item:T, Amount:Int) {
         map[Item] = Amount;
+        if(Amount == 0) map.remove(Item);
     }
 
     public function remove(Item:T, Amount:Int) {

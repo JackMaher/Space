@@ -41,15 +41,16 @@ class Comms extends FlxGroup {
 
         var i = 0;
 
-        switch(Data.CurrentLocation) {
-            case Left(p):
+        var loc = Data.CurrentLocation;
+        switch(Data.Info[loc].type) {
+            case Planet:
                 for(opt in [TALK,BUY,SELL]) {
                     var b = new CommsBtn(i++, opt, function() {
                         switchOption(opt);
                     });
                     add(b);
                 };
-            case Right(ss):
+            case SpaceStation:
                 for(opt in [TALK, REFUEL]) {
                     var b = new CommsBtn(i++, opt, function() {
                         switchOption(opt);
@@ -131,7 +132,7 @@ class Comms extends FlxGroup {
                 }
 
             case REFUEL:
-                var b = new TradeBtn(0, FUEL, REFUEL);
+                var b = new TradeBtn(0, "FUEL", REFUEL);
                 rightItems.add(b);
 
         }
@@ -271,7 +272,10 @@ class TradeBtn extends FlxSpriteGroup {
         thumb.y = 10;
         thumb.scaleUp();
 
-        cost = Data.Info[Data.CurrentLocation].prices[item];
+        var info = Data.Info[Data.CurrentLocation];
+        cost = (type == SELL || type == REFUEL)
+            ? info.items[item].basePrice
+            : info.prices[item];
 
         var costBg = new FlxSprite(ButtonWidth-230, 10).makeGraphic(80,50, 0xff000000, true);
         add(costBg);
