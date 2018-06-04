@@ -207,6 +207,7 @@ class Data {
 
     public static function AddStock() {
 
+        // Add new stock to producer
         for(loc in Data.Info) {
             var itemOptions = [];
             for(item in loc.items) {
@@ -215,11 +216,24 @@ class Data {
                     && item.maxStock > loc.stock.getAmount(item.name))
                     itemOptions.push(item.name);
             }
-            trace(itemOptions);
 
             if(itemOptions.length == 0) continue;
 
             loc.stock.add((new flixel.math.FlxRandom()).getObject(itemOptions), 1);
+        }
+        // Remove stock from non producer
+        for(loc in Data.Info) {
+            var itemOptions = [];
+            for(item in loc.items) {
+                trace(item);
+                if( !item.produces
+                    && 0 < loc.stock.getAmount(item.name))
+                    itemOptions.push(item.name);
+            }
+
+            if(itemOptions.length == 0) continue;
+
+            loc.stock.remove((new flixel.math.FlxRandom()).getObject(itemOptions), 1);
         }
 
     }
