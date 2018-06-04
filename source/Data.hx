@@ -229,6 +229,9 @@ class Data {
         var DemandMultiplier:Float = 2;
 
         function priceFunc(currentStock:Int,maxStock:Int,basePrice:Int):Int {
+            if(basePrice == null) return -1;
+            if(maxStock == null) return basePrice;
+
             var res = (DemandMultiplier-1) * basePrice * Math.sin(
                     (Math.min(maxStock, (currentStock-1)) / maxStock + 2)
                     * Math.PI / 2

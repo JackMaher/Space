@@ -17,7 +17,8 @@ class Storage<T:String> {
 
         map[Item] += Amount;
 
-        if(map[Item] == 0) map.remove(Item);
+        if(map[Item] == 0 || map[Item] == null)
+            map.remove(Item);
 
     }
 
@@ -29,7 +30,10 @@ class Storage<T:String> {
 
     public function setAmount(Item:T, Amount:Int) {
         map[Item] = Amount;
-        if(Amount == 0) map.remove(Item);
+
+        trace(Item + "," + map[Item]);
+        if(map[Item] == 0 || map[Item] == null)
+            map.remove(Item);
     }
 
     public function remove(Item:T, Amount:Int) {
@@ -38,7 +42,8 @@ class Storage<T:String> {
 
         map[Item] -= Amount;
 
-        if(map[Item] == 0) map.remove(Item);
+        if(map[Item] == 0 || map[Item] == null)
+            map.remove(Item);
 
         return true;
     }
