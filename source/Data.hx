@@ -49,6 +49,7 @@ class Data {
         "COW" => "Moo goes the Cow. Moo indeed. The Hickzoids are known to use cows as their brides, however such pratices are frown upon in space society today.",
         "PORN" => "Mucky Mags have been a stable of intergalactic top shelf reststop scene. However, since the galactic police banned them in the protected zone they've become highly saught after by protected space truckers alike.",
         "LUMIS" => "Cute, and delious!",
+        "FTL_DRIVES" => "Knock off FTL Drives, should go for a decent price.",
     ];
 
     public static var Info:Map<Location,LocationInfo> = new Map();
