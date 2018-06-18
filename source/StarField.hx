@@ -40,7 +40,7 @@ class StarField extends FlxShader {
                     float dx = (openfl_TextureCoordv.x - scale.x/2.0);
                     float dy = (openfl_TextureCoordv.y - scale.y/2.0);
                     float r2 = dx*dx+dy*dy;
-                    float at = round(atan(dy,dx)*30.0) / 30.0;
+                    float at = floor(atan(dy,dx)*30.0) / 30.0;
 
                     float amtNum = 3.0;
 

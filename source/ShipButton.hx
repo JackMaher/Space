@@ -11,22 +11,23 @@ class ShipButton extends FlxGroup {
     var area:FlxSprite;
     public var text:FlxText;
     var callback:Void->Void;
+    public var down:Bool;
 
     override public function new(X,Y,W,H,TX,TY,TText, Callback=null) {
 
         super();
 
         area = new FlxSprite();
-        area.makeGraphic(W*10, H*10, FlxColor.RED);
+        area.makeGraphic(W*ScaledSprite.Scale, H*ScaledSprite.Scale, FlxColor.RED);
         area.alpha = 0;
         add(area);
 
-        area.x = X * 10;
-        area.y = Y * 10;
+        area.x = X * ScaledSprite.Scale;
+        area.y = Y * ScaledSprite.Scale;
 
         text = new FlxText();
-        text.x = TX * 10;
-        text.y = TY * 10;
+        text.x = TX * ScaledSprite.Scale;
+        text.y = TY * ScaledSprite.Scale;
 
         text.text = " " + TText.toUpperCase();
         text.setFormat("assets/pixelade.ttf", 40, FlxColor.WHITE);
@@ -47,6 +48,8 @@ class ShipButton extends FlxGroup {
         text.visible = over;
         if(FlxG.mouse.justPressed && over)
             if(callback != null) callback();
+            
+        down = FlxG.mouse.pressed && over;
 
     }
 

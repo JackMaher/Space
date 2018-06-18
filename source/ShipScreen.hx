@@ -70,6 +70,35 @@ class ShipScreen extends FlxState {
 
     public function travel() {
 
+        CurrentMode = FLYING;
+        if(Math.random() < 1 + Data.EncounterChance) {
+            var fight = new ShipFight(doTravel);
+
+            front.tween({alpha:0}, 1);
+            new FlxTimer().start(1, function(_) {
+                FlxG.camera.shake(0.01, 0);
+            });
+
+            new FlxTimer().start(2, function(_) {
+                add(new TalkDialog({
+                    name: "sods",
+                    message:
+"Oh jinkeys! There's some space pirates hot on our tail!
+
+You'll have to fight them off!",
+                    color:0xff00ff00
+                }, openSubState.bind(fight)));
+            });
+
+        }
+        else {
+            doTravel();
+        }
+
+    }
+
+    public function doTravel() {
+
         if(Data.PlottedLocation == null)                 return;
         if(Data.PlottedLocation == Data.CurrentLocation) return;
 

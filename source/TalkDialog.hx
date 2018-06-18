@@ -9,16 +9,27 @@ using ScaledSprite;
 
 class TalkDialog extends FlxSpriteGroup {
 
-
     var nameText:FlxText;
     var messageText:FlxText;
     var remText:String;
     var image:FlxSprite;
+    var callback:Void->Void;
 
-    public function new() {
+    public function new(
+        info:{
+            name:String,
+            message:String,
+            color:Int
+        } = null, cb:Void->Void = null) {
+
+        if(info == null)
+            info = Data.Info[Data.CurrentLocation].talk;
+
         super();
-        var info = Data.Info[Data.CurrentLocation].talk;
+
         remText = info.message;
+        callback = cb;
+        if(cb == null) cb = toComms;
 
         var leftPos = Math.floor(FlxG.width / 3);
 
@@ -43,6 +54,12 @@ class TalkDialog extends FlxSpriteGroup {
 
     }
 
+    function toComms() {
+        var ss = cast(FlxG.state, ShipScreen);
+        ss.add(new Comms());
+        ShipScreen.CurrentMode = COMMS;
+    }
+
     override public function update(elapsed:Float) {
         super.update(elapsed);
 
@@ -52,9 +69,7 @@ class TalkDialog extends FlxSpriteGroup {
         }
         else if(FlxG.mouse.justReleased) {
             kill();
-            var ss = cast(FlxG.state, ShipScreen);
-            ss.add(new Comms());
-            ShipScreen.CurrentMode = COMMS;
+            callback();
         }
 
     }

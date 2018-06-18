@@ -8,6 +8,7 @@ class Data {
     public static var CurrentGalaxy = "PROTECTED";
     public static var PlottedLocation:Location = null;
     public static var CurrentLocation:Location = "Smega9";
+    public static var EncounterChance:Float = 1/10;
 
     public static var Fuel(default,set):Int;
     public static var MaxFuel;
