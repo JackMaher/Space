@@ -75,7 +75,7 @@ class ShipFight extends FlxSubState {
             rodgerShip.powerUpType = NONE;
 
         shipShield.visible = aiShip.shields > 0;
-        nearshipShield.visible = aiShip.shields > 0;
+        nearshipShield.visible = rodgerShip.shields > 0;
 
     }
 

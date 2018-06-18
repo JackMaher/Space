@@ -24,16 +24,17 @@ class ShipPower extends FlxSpriteGroup {
     public var powerUpPeriod:Float = 0.5;
 
     public var powerUpType:Move = NONE;
+    public var _prevPowerUpType:Move = NONE;
 
     // Used internally.
     var _regainTimer:Float = 0;
     var _powerUpTimer:Float = 0;
     var _powerBars:Array<PowerBar> = [];
 
-    var hp:Int;
+    var hp:Int = 0;
     var maxHp:Int = 25;
 
-    public var shields(default,set):Int;
+    public var shields(default,set):Int = 0;
     var maxShields:Int = 5;
 
     var colors:Map<Move,Int> = [
@@ -71,11 +72,11 @@ class ShipPower extends FlxSpriteGroup {
         }
         else {
             if(power > 0) {
-                if(powerUpType == SHIELD){
+                if(_prevPowerUpType == SHIELD){
                     trace('shield $power');
                     shields += power;
                 }
-                if(powerUpType == FIRE) {
+                if(_prevPowerUpType == FIRE) {
                     trace('pew $power');
                 }
                 energy -= power;
@@ -91,6 +92,8 @@ class ShipPower extends FlxSpriteGroup {
             _regainTimer -= regainPeriod;
             energy++;
         }
+
+        _prevPowerUpType = powerUpType;
 
     }
 
