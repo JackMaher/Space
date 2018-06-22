@@ -70,6 +70,9 @@ class ShipScreen extends FlxState {
 
     public function travel() {
 
+        if(Data.PlottedLocation == null)                 return;
+        if(Data.PlottedLocation == Data.CurrentLocation) return;
+
         CurrentMode = FLYING;
         if(Math.random() < Data.EncounterChance) {
             var fight = new ShipFight(doTravel);
