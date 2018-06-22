@@ -44,13 +44,15 @@ class ShipPower extends FlxSpriteGroup {
     var hp(default,set):Int = 0;
     var maxHp:Int = 15;
 
+    var hpText:FlxText;
+
     var colors:Map<Move,Int> = [
         SHIELD => 0xff015be4,
         FIRE   => 0xfff60101,
         NONE   => FlxColor.WHITE
     ];
 
-    public function new(xPos:Float, yPos:Float, mainColor:Int, s:Shield, t:Team) {
+    public function new(xPos:Float, yPos:Float, hpX:Float, hpY:Float, mainColor:Int, s:Shield, t:Team) {
 
         super();
 
@@ -62,6 +64,12 @@ class ShipPower extends FlxSpriteGroup {
             _powerBars[i].y += yPos * ScaledSprite.Scale;
 
         }
+
+        hpText = new FlxText(hpX*ScaledSprite.Scale,hpY*ScaledSprite.Scale,400,hp);
+        hpText.setFormat("assets/pixelade.ttf",60,0xffc11c17);
+        hpText.setBorderStyle(OUTLINE,0xff000000, 4);
+        add(hpText);
+
         hp = maxHp;
 
         shield = s;
@@ -182,8 +190,10 @@ class ShipPower extends FlxSpriteGroup {
             }
 
         trace(H);
-
         hp = H;
+
+        hpText.text = Std.string(hp);
+
         return hp;
     }
 
