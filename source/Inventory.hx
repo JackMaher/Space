@@ -114,7 +114,7 @@ class InventoryButton extends FlxSpriteGroup {
     var SelColor:Int    = 0xff164700;
     var ButtonWidth     = 230;
     var ButtonHeight    =  80;
-    var TopLeft         = {x:230, y:90};
+    var TopLeft         = {x:140, y:90};
 
     var bg:FlxSprite;
     var itemLabel:FlxText;
