@@ -9,15 +9,14 @@ using ScaledSprite;
 class ShipFight extends FlxSubState {
 
     var bg:FlxSprite;
-    var ship:FlxSprite;
     var buttons:FlxSprite;
     var totElapsed:Float = 0;
     var firing:Float = 0;
     var redBtn:ShipButton;
     var blueBtn:ShipButton;
+    var ship:FlxSprite;
     var nearship:FlxSprite;
-    var shipShield:FlxSprite;
-    var nearshipShield:FlxSprite;
+
     var aiShip:ShipAI;
     var rodgerShip:RodgerShip;
 
@@ -47,14 +46,12 @@ class ShipFight extends FlxSubState {
 
         add(rodgerShip = new RodgerShip());
 
+        aiShip.enemy = rodgerShip;
+        rodgerShip.enemy = aiShip;
+
         add(nearship = new FlxSprite(0,0,"assets/images/combat/playership.png"));
         nearship.scaleUp();
 
-        add(shipShield = new FlxSprite(0,0,"assets/images/combat/attackshipshield.png"));
-        shipShield.scaleUp();
-
-        add(nearshipShield = new FlxSprite(0,0,"assets/images/combat/playershipshield.png"));
-        nearshipShield.scaleUp();
 
     }
 
@@ -64,8 +61,8 @@ class ShipFight extends FlxSubState {
         totElapsed += elapsed;
         firing += elapsed;
 
-        ship.offset.x = -Math.floor(Math.sin(totElapsed*2.4)*1.4+1.4)*ship.scale.x;
-        ship.offset.y = Math.floor(Math.cos(totElapsed*1.5)*1+1)*ship.scale.y;
+        //ship.offset.x = -Math.floor(Math.sin(totElapsed*2.4)*1.4+1.4)*ship.scale.x;
+        //ship.offset.y = Math.floor(Math.cos(totElapsed*1.5)*1+1)*ship.scale.y;
 
         if(redBtn.down)
             rodgerShip.powerUpType = FIRE;
@@ -73,9 +70,6 @@ class ShipFight extends FlxSubState {
             rodgerShip.powerUpType = SHIELD;
         else
             rodgerShip.powerUpType = NONE;
-
-        shipShield.visible = aiShip.shields > 0;
-        nearshipShield.visible = rodgerShip.shields > 0;
 
     }
 
