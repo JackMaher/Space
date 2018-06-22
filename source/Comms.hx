@@ -272,7 +272,7 @@ class TradeBtn extends FlxSpriteGroup {
         add(thumb);
         thumb.x = 10;
         thumb.y = 10;
-        thumb.scaleUp();
+        thumb.scaleUp(5);
 
         var info = Data.Info[Data.CurrentLocation];
         cost = (type == SELL || type == REFUEL)

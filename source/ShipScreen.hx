@@ -71,7 +71,7 @@ class ShipScreen extends FlxState {
     public function travel() {
 
         CurrentMode = FLYING;
-        if(Math.random() < 1 + Data.EncounterChance) {
+        if(Math.random() < 0.1 + Data.EncounterChance) {
             var fight = new ShipFight(doTravel);
 
             front.tween({alpha:0}, 1);
@@ -81,11 +81,9 @@ class ShipScreen extends FlxState {
 
             new FlxTimer().start(2, function(_) {
                 add(new TalkDialog({
-                    name: "sods",
+                    name: "sodsbury",
                     message:
-"Oh jinkeys! There's some space pirates hot on our tail!
-
-You'll have to fight them off!",
+                    "Wowie. Quick to the combat room, also some other dialog to test animaition. Woooooooooooooooooooooooooooowie.", 
                     color:0xff00ff00
                 }, openSubState.bind(fight)));
             });

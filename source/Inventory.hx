@@ -144,7 +144,7 @@ class InventoryButton extends FlxSpriteGroup {
         add(thumb);
         thumb.x = 10;
         thumb.y = 10;
-        thumb.scaleUp();
+        thumb.scaleUp(5);
 
         itemLabel = new FlxText(80,12);
         itemLabel.setFormat("assets/pixelade.ttf", 40, TextColor);
