@@ -29,7 +29,6 @@ class TalkDialog extends FlxSpriteGroup {
 
         remText = info.message;
         callback = cb;
-        if(cb == null) cb = toComms;
 
         var leftPos = Math.floor(FlxG.width / 3);
 
@@ -69,7 +68,11 @@ class TalkDialog extends FlxSpriteGroup {
         }
         else if(FlxG.mouse.justReleased) {
             kill();
-            callback();
+            if(callback == null)
+                toComms();
+            else
+                callback();
+
         }
 
     }
