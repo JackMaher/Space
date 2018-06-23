@@ -33,7 +33,7 @@ class Inventory extends FlxGroup {
         add(bg);
 
         var TL = {x:230,y:90};
-        var TM = {x:470,y:90};
+        var TM = {x:380,y:90};
 
         var i = 0;
         for(item in Data.Cargo.allItems()) {
@@ -55,7 +55,7 @@ class Inventory extends FlxGroup {
             heading.text = "Cargo hold is empty.";
         add(heading);
 
-        inStockText = new FlxText(TM.x+10, TM.y+55, 410);
+        inStockText = new FlxText(TM.x+10, TM.y+55, 590);
         inStockText.setFormat("assets/pixelade.ttf", 32, 0xff999999, RIGHT);
         add(inStockText);
 
@@ -63,7 +63,7 @@ class Inventory extends FlxGroup {
         itemImg.visible = false;
         add(itemImg);
 
-        itemDesc = new FlxText(TM.x+10, TM.y+220, 420);
+        itemDesc = new FlxText(TM.x+10, TM.y+220, 590);
         itemDesc.setFormat("assets/pixelade.ttf", 30, 0xffffffff);
         add(itemDesc);
 
@@ -94,9 +94,9 @@ class Inventory extends FlxGroup {
 
         if(totElapsed < 0.1) return;
         if(FlxG.mouse.justPressed &&
-                ( mpos.x < 200
+                ( mpos.x < 110
                || mpos.y < 60
-               || mpos.x > 930
+               || mpos.x > 1010
                || mpos.y > 540 )) {
             kill();
             ShipScreen.CurrentMode = NORMAL;

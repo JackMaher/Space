@@ -149,9 +149,9 @@ class Comms extends FlxGroup {
 
         if(totElapsed < 0.1) return;
         if(FlxG.mouse.justPressed &&
-                ( mpos.x < 200
+                ( mpos.x < 110
                || mpos.y < 60
-               || mpos.x > 930
+               || mpos.x > 1010
                || mpos.y > 540 )) {
             kill();
             ShipScreen.CurrentMode = NORMAL;
