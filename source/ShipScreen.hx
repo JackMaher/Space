@@ -88,7 +88,7 @@ class ShipScreen extends FlxState {
             });
 
             var messages = [
-                "Keeps your eyes forward, we got company.",
+                "Something's pulling us out of warp.",
                 "We're being tailed.",
                 "I think those lovely tattooed men we passed want to have a polite discussion with us." ,
                 "We got pirates! \n ... \n SPACE PIRATES!",
