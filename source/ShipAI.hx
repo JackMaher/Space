@@ -12,7 +12,8 @@ class ShipAI extends ShipPower {
     var mode: AIMode = GAINING;
 
     public function new() {
-        super(-300,3,0xffff0000);
+        super(-300,3,92,26,0xffff0000,
+        new Shield(740, 100,"attackshipshield"), ENEMY);
 
         chooseNext();
     }

@@ -149,9 +149,9 @@ class Comms extends FlxGroup {
 
         if(totElapsed < 0.1) return;
         if(FlxG.mouse.justPressed &&
-                ( mpos.x < 200
+                ( mpos.x < 110
                || mpos.y < 60
-               || mpos.x > 930
+               || mpos.x > 1010
                || mpos.y > 540 )) {
             kill();
             ShipScreen.CurrentMode = NORMAL;
@@ -169,7 +169,7 @@ class CommsBtn extends FlxSpriteGroup {
     var SelColor:Int    = 0xff164700;
     var ButtonWidth     = 230;
     var ButtonHeight    =  80;
-    var TopLeft         = {x:230, y:90};
+    var TopLeft         = {x:140, y:90};
 
     var bg:FlxSprite;
     var itemLabel:FlxText;
@@ -231,9 +231,9 @@ class TradeBtn extends FlxSpriteGroup {
     var CountColor:Int  = 0xffffffff;
     var BorderColor:Int = 0xff000000;
     var SelColor:Int    = 0xff164700;
-    var ButtonWidth     = 430;
+    var ButtonWidth     = 610;
     var ButtonHeight    =  80;
-    var TopLeft         = {x:470, y:200};
+    var TopLeft         = {x:380, y:200};
 
     var bg:FlxSprite;
     var itemLabel:FlxText;
@@ -272,7 +272,7 @@ class TradeBtn extends FlxSpriteGroup {
         add(thumb);
         thumb.x = 10;
         thumb.y = 10;
-        thumb.scaleUp();
+        thumb.scaleUp(5);
 
         var info = Data.Info[Data.CurrentLocation];
         cost = (type == SELL || type == REFUEL)
@@ -286,7 +286,7 @@ class TradeBtn extends FlxSpriteGroup {
         costLabel.text.text = Std.string(cost);
         add(costLabel);
 
-        itemLabel = new FlxText(80,12);
+        itemLabel = new FlxText(thumb.x + thumb.width*thumb.scale.x + 10,12);
         itemLabel.setFormat("assets/pixelade.ttf", 40, TextColor);
         itemLabel.text = name.substr(0,1)+name.substr(1).toLowerCase();
 

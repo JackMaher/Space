@@ -14,6 +14,7 @@ class TalkDialog extends FlxSpriteGroup {
     var remText:String;
     var image:FlxSprite;
     var callback:Void->Void;
+    var was:Bool = false;
 
     public function new(
         info:{
@@ -29,11 +30,13 @@ class TalkDialog extends FlxSpriteGroup {
 
         remText = info.message;
         callback = cb;
-        if(cb == null) cb = toComms;
 
         var leftPos = Math.floor(FlxG.width / 3);
 
-        var image = new FlxSprite('assets/images/talk/${info.name.toLowerCase()}.png');
+        image = new FlxSprite();
+        image.loadGraphic('assets/images/talk/${info.name.toLowerCase()}.png', true, 23, 23);
+        image.animation.add("talk", [for (i in 0...image.animation.frames) i], 0);
+        image.animation.play("talk");
         image.scaleUp();
         image.x = -image.width*10 - 10;
         add(image);
@@ -63,13 +66,28 @@ class TalkDialog extends FlxSpriteGroup {
     override public function update(elapsed:Float) {
         super.update(elapsed);
 
+        if(Math.random() < 3/10 && !was && remText != "") {
+            image.animation.frameIndex = Std.int(Math.random() * image.animation.frames);
+            was = true;
+        }
+        else if(was) 
+            was = false;
+
+        if(remText == "") {
+            image.animation.frameIndex = 2;
+        }
+
         if(remText != "") {
             messageText.text += remText.charAt(0);
             remText = remText.substr(1);
         }
         else if(FlxG.mouse.justReleased) {
             kill();
-            callback();
+            if(callback == null)
+                toComms();
+            else
+                callback();
+
         }
 
     }

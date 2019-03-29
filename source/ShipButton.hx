@@ -5,6 +5,7 @@ import flixel.FlxSprite;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.FlxG;
+import flixel.system.FlxSound;
 
 class ShipButton extends FlxGroup {
 
@@ -12,6 +13,7 @@ class ShipButton extends FlxGroup {
     public var text:FlxText;
     var callback:Void->Void;
     public var down:Bool;
+    public var bleep:FlxSound;
 
     override public function new(X,Y,W,H,TX,TY,TText, Callback=null) {
 
@@ -47,7 +49,11 @@ class ShipButton extends FlxGroup {
 
         text.visible = over;
         if(FlxG.mouse.justPressed && over)
-            if(callback != null) callback();
+            if(callback != null){
+             callback();
+             bleep = FlxG.sound.play("assets/bleep.wav");
+         }
+
             
         down = FlxG.mouse.pressed && over;
 

@@ -15,6 +15,7 @@ using flixel.tweens.FlxTween;
 import flixel.FlxCamera;
 import haxe.ds.Either;
 import Data;
+import flixel.system.FlxSound;
 
 class ShipScreen extends FlxState {
 
@@ -26,6 +27,7 @@ class ShipScreen extends FlxState {
     var starSprite:FlxSprite;
 
     var totElapsed:Float = 0;
+    public var music:FlxSound;
 
     override public function create() {
 
@@ -42,6 +44,9 @@ class ShipScreen extends FlxState {
 
         backLayer = new FlxGroup();
         add(backLayer);
+
+        //music = FlxG.sound.play("assets/back.wav");
+
 
 
         // Main HUD group
@@ -70,8 +75,11 @@ class ShipScreen extends FlxState {
 
     public function travel() {
 
+        if(Data.PlottedLocation == null)                 return;
+        if(Data.PlottedLocation == Data.CurrentLocation) return;
+
         CurrentMode = FLYING;
-        if(Math.random() < 1 + Data.EncounterChance) {
+        if(Math.random() < Data.EncounterChance) {
             var fight = new ShipFight(doTravel);
 
             front.tween({alpha:0}, 1);
@@ -79,13 +87,20 @@ class ShipScreen extends FlxState {
                 FlxG.camera.shake(0.01, 0);
             });
 
+            var messages = [
+                "Something's pulling us out of warp.",
+                "We're being tailed.",
+                "I think those lovely tattooed men we passed want to have a polite discussion with us." ,
+                "We got pirates! \n ... \n SPACE PIRATES!",
+
+            ];
+
+            var sodsMessage = messages[Math.floor(Math.random() * messages.length)];
+
             new FlxTimer().start(2, function(_) {
                 add(new TalkDialog({
-                    name: "sods",
-                    message:
-"Oh jinkeys! There's some space pirates hot on our tail!
-
-You'll have to fight them off!",
+                    name: "sodsbury",
+                    message: sodsMessage,
                     color:0xff00ff00
                 }, openSubState.bind(fight)));
             });
@@ -103,7 +118,7 @@ You'll have to fight them off!",
         if(Data.PlottedLocation == Data.CurrentLocation) return;
 
         CurrentMode = FLYING;
-
+        music = FlxG.sound.play("assets/blast.wav");
         var fuelCost = Data.FuelCost(Data.CurrentLocation,Data.PlottedLocation);
         Data.CurrentLocation = Data.PlottedLocation;
         Data.PlottedLocation = null;
