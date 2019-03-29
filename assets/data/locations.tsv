@@ -1,8 +1,9 @@
 Name	Type	Galaxy	Map::X	Map::Y	Talk::Name	Talk::Message	Talk::Color	Item::FUEL::Produces	Item::FUEL::BasePrice	Item::FUEL::MaxStock	Item::FUEL::StartStock	Item::COW::Produces	Item::COW::BasePrice	Item::COW::MaxStock	Item::COW::StartStock	Item::PORN::Produces	Item::PORN::BasePrice	Item::PORN::MaxStock	Item::PORN::StartStock	Item::LUMIS::Produces	Item::LUMIS::BasePrice	Item::LUMIS::MaxStock	Item::LUMIS::StartStock	Item::FTL_DRIVES::Produces	Item::FTL_DRIVES::BasePrice	Item::FTL_DRIVES::MaxStock	Item::FTL_DRIVES::StartStock
 SPACE_STATION	SpaceStation	PROTECTED	85	20	Bubba	Hey what's going on YouTube my name is Bubba and on today's unboxing video we're going to be opening a portal to Hell.   Don't forget to destroy that like button!	ORANGE	X	15	0	0																
-Smega9	Planet	PROTECTED	70	18	Bubba	Hey what's going on YouTube my name is Bubba and on today's unboxing video we're going to be opening a portal to Hell.  Don't forget to destroy that like button!	ORANGE					X	10	30	1						40			X	40	20	10
+Smega9	Planet	PROTECTED	70	18	Bubba	Hey what's going on YouTube my name is Bubba and on today's unboxing video we're going to be opening a portal to Hell.  Don't forget to destroy that like button!	ORANGE					X	10	30	5						40			X	40	20	10
 Zemroid	Planet	PROTECTED	38	34	Johnny	Did you know it apperently tradition for the Hickzoid to marry their cows?	ORANGE						15								30				35		
 Dimium	Planet	PROTECTED	33	16	Bubba	Hey	ORANGE													X	30	15	2		30		
-Nomusroid	Planet	PROTECTED	83	38	Bubba	Hey lil momma let me whisper in your ear	ORANGE						20								35			X	45	30	10
+Nomusroid	Planet	PROTECTED	83	38	Bubba	"Welcome to Nomusroid, home to the Hickzoid, how can we help you?"	ORANGE						20								35			X	45	30	10
 Amutlis	Planet	PROTECTED	50	24	Bubba	Testboi	ORANGE					X	15	30	5						35						
-Rilsuk	Planet	PROTECTED	28	29	Billy	Whatcha talking about	ORANGE					X	10	40	10						40				40		
+Rilsuk	Planet	PROTECTED	28	32	Billy	While also being a trendy pet Lumis are perfect food for Cows.	ORANGE					X	10	40	10						40				40		
+Portal	Planet	PROTECTED	19	19	Johnny	Weee Wooo	ORANGE	X	15	0	0																
