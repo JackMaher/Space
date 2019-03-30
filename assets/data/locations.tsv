@@ -2,8 +2,8 @@ Name	Type	Galaxy	Map::X	Map::Y	Talk::Name	Talk::Message	Talk::Color	Item::FUEL::
 SPACE_STATION	SpaceStation	PROTECTED	85	20	Cale	Come take a seat would you like to purchase a hot none-trademarked hot beverage while you refull?	ORANGE	X	15	0	0																
 Smega9	Planet	PROTECTED	70	18	Jared	Cows and FTL Drives thats all we have on this planet just try to imagine a WHOLE PLANET that only has two things Cows and FLT Drives. 	ORANGE					X	10	30	5						40			X	40	20	10
 Zemroid	Planet	PROTECTED	38	34	Johnny	Did you know it apperently tradition for the Hickzoid to marry their cows? 	ORANGE						15								30				35		
-Dimium	Planet	PROTECTED	33	16	Bubba	Dimium is the only planet in the galaxy allowed to sell Lumis.	ORANGE													X	30	15	2		30		
+Dimium	Planet	PROTECTED	33	16	Kurt	Dimium is the only planet in the galaxy allowed to sell Lumis.	ORANGE													X	30	15	2		30		
 Nomusroid	Planet	PROTECTED	83	38	Bubba	"Welcome to Nomusroid, territory of the Hickzoid, how can we help you?"	ORANGE						20								35			X	45	30	10
-Amutlis	Planet	PROTECTED	50	24	Bubba	"Well hi de ho neighbor don't supposed you've come from the ""Unprotected Zone"" I'm looking for some new reading material if you get my meaning"	ORANGE					X	15	30	5						35						
+Amutlis	Planet	PROTECTED	50	24	Gayvin	"Well hi de ho neighbor don't supposed you've come from the ""Unprotected Zone"" I'm looking for some new reading material if you get my meaning"	ORANGE					X	15	30	5						35						
 Rilsuk	Planet	PROTECTED	28	32	Billy	Lumis fetch a good price for farming planet cows love them!	ORANGE					X	10	40	10						40				40		
 Portal	Planet	PROTECTED	19	19	Johnny	"You can take a portal to the ""Unprotected Zone"" lawless land though don't come crawling back with your exhaust pipe between your legs."	ORANGE	X	15	0	0																
